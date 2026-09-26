@@ -9,4 +9,5 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('ioc-angular-gestor-usuario-hector-jimenez');
+  public gestiorUsuaris = 'Gestió d\'Ususaris';   // substituïu-ho pel nom de la vostra aplicació
 }
