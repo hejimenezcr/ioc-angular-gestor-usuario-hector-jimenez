@@ -1,0 +1,530 @@
+# 
+
+<h1 align="center">Gestor d'usuaris</h1>
+
+<p align="center">
+  <b>Aquest repositori conté un sistema de gestió d'usuaris dissenyat per administrar el registre, l'autenticació i el control de rols de manera eficient.</b>
+</p>
+
+------------------------------------------------------
+
+## 📑 Índex de Continguts
+
+* [1. Sobre el Projecte](#1-sobre-el-projecte)
+* [2. Requisits del Sistema](#2-requisits-del-sistema)
+* [3. Guia d'Instal·lació](#3-guia-dinstal·lació)
+* [4. Scripts Disponibles](#4-scripts-disponibles)
+* [5. Estructura del Projecte](#5-estructura-del-projecte)
+* [6. Tecnologies Utilitzades](#6-tecnologies-utilitzades)
+* [7. Autors i Llicència](#7-autors-i-llicència)
+
+------------------------------------------------------
+
+## 1. Sobre el Projecte
+
+Aquest projecte ha estat creat com a part del mòdul de desenvolupament web. L'objectiu principal és oferir una interfície interactiva construïda amb **Angular** que es comunica amb serveis REST i utilitza bones pràctiques d'arquitectura de programari.
+
+------------------------------------------------------
+
+## 2. Requisits del Sistema
+
+Abans de començar, assegura't de tenir instal·lades les següents eines al teu entorn local:
+
+* **Node.js**: `v24.15.0` o superior (LTS)
+* **NPM**: `v10.x` o superior
+* **Angular CLI**: `v19.x` o superior (`npm install -g @angular/cli`)
+* **Git** per al control de versions
+
+**Taula d'aplicatius**
+
+| Eina | Versió | Comprovar | Descripció |
+| :--- | :---: | ---: | ---: |
+| Node.js | 24.21.0 | node --version | Motor JavaScript |
+| npm | 11.19.0 | npm --version | Gestor paquets |
+| Angular CLI | 22.2.0 | ng version | Eina línia d'ordres |
+| VS Code | 1.139.1 | code --version | Editor codi |
+| Git | 2.55.0 | git --version | Control versions |
+| Navegador | Chrome compatible Angular 22 | Obrir navegador | DevTools |
+
+**URL Oficials Per Descarregar**
+
+- [Node.js](https://nodejs.org)
+
+- [Angular CLI](https://angular.dev/cli)
+
+- [VS Code](https://code.visualstudio.com)
+
+- [Git](https://git-scm.com)
+
+**Extensions VS Code recomanades**
+
+- **Angular Language Service**: *Autocompletat plantilles*
+
+- **ESLint**: *Detecció errors qualitat*
+
+- **Prettier**: *Format automàtic*
+
+- **GitLens**: *Visualització Git*
+
+- **Path Intellisense**: *Autocompletat rutes*
+
+------------------------------------------------------
+
+## 3. Guia d'Instal·lació
+
+Una vegada feta en el [2. Requisits del Sistema](#2-requisits-del-sistema), podrem verificar versions d'eines amb les següents comandes o el executable que deixo en el repositori.
+
+```bash
+# Windows PowerShell
+node --version
+npm --version
+ng version
+git --version
+code --version
+```
+
+Un altre pas que s'ha de fer és revisar les característiques del sistema operatiu com l'espai disponible que és es té per treballar, per poder realitzar deixo les següents comandes o l'executable que deixo en el repositori.
+
+```bash
+# Informació Completa del Sistema Operatiu
+systeminfo | findstr /I /C:"OS" /C:"Sistema"
+
+# Nom del Sistema Operatiu
+systeminfo | findstr /B /C:"Nombre del sistema operativo" /C:"Versión del sistema operativo"
+
+# Sistema Operatiu i Versió
+powershell -Command "Get-CimInstance Win32_OperatingSystem | Select-Object Caption, Version"
+
+# Verificar espai disponible
+powershell -Command "Get-PSDrive C | Select-Object Used, Free"
+
+# erificar espai disponible amb GB
+powershell -Command "Get-PSDrive C | Select-Object @{Name='Used (GB)'; Expression={[math]::Round($_.Used / 1GB, 2)}}, @{Name='Free (GB)'; Expression={[math]::Round($_.Free / 1GB, 2)}}"
+```
+
+- **Checklist de requisits del sistema**
+
+**Maquinari**
+- [ ] CPU: _____ nuclis, _____ GHz (mínim 2)
+- [ ] RAM: _____ GB (mínim 4, recomanat 8-16)
+- [ ] Espai lliure: _____ GB (mínim 10)
+- [ ] Disc: HDD / SSD
+
+**Sistema operatiu**
+- [ ] SO: Windows ___ / macOS ___ / Linux _____
+- [ ] Terminal: PowerShell / zsh / bash
+- [ ] Permisos: Administrador / sudo
+
+**Eines actuals (si n'hi ha)**
+- [ ] Node.js: _____ (`node --version`; mòdul: 24.15.0+ dins 24.x)
+- [ ] npm: _____ (`npm --version`; inclòs amb Node.js 24)
+- [ ] Angular CLI: _____ (`ng version`; mòdul: 22.x)
+- [ ] VS Code: _____ (`code --version`)
+- [ ] Git: _____ (`git --version`)
+
+**Accés a Internet**
+- [ ] Connexió estable
+- [ ] Proxy (si escau): _____
+
+*Observacions / Notes sobre el meu sistema / Dubtes per resoldre*
+
+- **Configuració Git i GitHub**
+
+```bash
+# Configuració global
+git config --global user.name "hejimenezcr"
+git config --global user.email "h_jimenezcruz@hotmail.com"
+
+# Verificar configuració
+git config --global --list
+```
+
+- **Crear repositori remot de Gestor d'usuaris**
+
+Dins de l'aplicatiu web GitHub i enregistrat anirem a crear un nou repositori:
+1. Cliqueu **New repository** (*botó verd dalt a la dreta*)
+2. **Repository name**: *ioc-angular-gestor-usuario-hector-jimenez*
+3. **Description**: "*Aquest repositori conté un sistema de gestió d'usuaris dissenyat per administrar el registre, l'autenticació i el control de rols de manera eficient.*"
+4. Deixeu **Public** seleccionat
+5. **NO marqueu** "*Add a README file*" (ja el teniu)
+6. Cliqueu **Create repository**
+
+- **Comades de GitHub per el repositori remot**
+
+Una vegada creat el repositori, la plataforma ens proporcionarà un conjunt de comandes per a la seva gestió. Aquestes ens permetran pujar o baixar canvis, seleccionar la branca de treball i realitzar els commits corresponents.
+
+```bash
+echo "# ioc-angular-gestor-usuario-hector-jimenez" >> README.md 
+git init 
+git add README.md 
+git commit -m "first commit" 
+git branch -M main 
+git remote add origin https://github.com/hejimenezcr/ioc-angular-gestor-usuario-hector-jimenez.git
+ git push -u origin main
+```
+
+- **Per clonar el repositori i executar el projecte**
+
+```bash
+git clone https://github.com/hejimenezcr/ioc-angular-gestor-usuario-hector-jimenez.git
+```
+
+Un cop arribats a aquest punt, ja podem crear el projecte Angular. Per fer-ho, ens desplaçarem a la carpeta on tenim allotjat el repositori per tal d'executar-hi les comandes necessàries.
+
+```bash
+cd C:\ZPublico\Repositorios_GitHub\ioc-angular-gestor-usuario-hector-jimenez
+```
+
+Crea projecte Angular complet
+
+```bash
+ng new ioc-angular-gestor-usuario-hector-jimenez --routing --style=scss --ssr=false --standalone=true --file-name-style-guide=2016 --skip-git=true --package-manager=npm
+```
+
+Ens crearà diferents fitxes que entre ells:
+
+```bash
+CREATE ioc-angular-gestor-usuario-hector-jimenez/README.md
+CREATE ioc-angular-gestor-usuario-hector-jimenez/angular.json
+CREATE ioc-angular-gestor-usuario-hector-jimenez/package.json
+CREATE ioc-angular-gestor-usuario-hector-jimenez/tsconfig.json
+```
+
+En instal·lar el mòdul NPM el repositori Git no pujarà el seu contingut, en el cas que vulguem que sí que pugi s'ha de crear un fitxer i modificar el seu contingut, pera que ho faci bé sense deixar-se res.
+
+```bash
+# Nom del fitxer
+.gitignore
+```
+
+Entrarem dins del projecte d'Angular.
+
+```bash
+cd C:\ZPublico\Repositorios_GitHub\ioc-angular-gestor-usuario-hector-jimenez
+```
+
+Instal·larem les dependències NPM.
+
+```bash
+npm install
+```
+
+Inicia el servidor de desenvolupament:
+```bash
+ng serve --open
+```
+
+L'aplicació s'obrirà automàticament a http://localhost:4200 amb suport de recàrrega en directe (Hot Reload).
+
+Quan executam la comanda, ens demana si volem utilitzar el navegador que tenim predefinit. Si li diem que sí, s'obrirà el navegador de forma automàtica. Tot canvi que realitzem als fitxers de configuració es reflectirà de forma automàtica.
+
+Quan vulguem tancar el servei, haurem d'anar al terminal, prémer ```Ctrl + C``` i es tancarà."
+
+Continuarem configurant i preparant l'estructura del projecte, ara crearem carpetes preparatòries.
+
+```bash
+# Ubicacó del projecte
+cd C:\ZPublico\Repositorios_GitHub\ioc-angular-gestor-usuario-hector-jimenez\ioc-angular-gestor-usuario-hector-jimenez
+
+
+# Windows PowerShell
+Set-Location src\app
+New-Item -ItemType Directory -Name components
+New-Item -ItemType Directory -Name services
+New-Item -ItemType Directory -Name models
+New-Item -ItemType Directory -Name pages
+Set-Location ..\..
+
+# Linux/macOS/Git Bash
+cd src/app
+mkdir components services models pages
+cd ../..
+```
+
+Git no versiona carpetes buides. Perquè les quatre carpetes quedin registrades al repositori, afegiu-hi un fitxer .gitkeep:
+
+```bash
+# Windows PowerShell (des de l'arrel del projecte)
+New-Item src\app\components\.gitkeep
+New-Item src\app\services\.gitkeep
+New-Item src\app\models\.gitkeep
+New-Item src\app\pages\.gitkeep
+
+# Linux/macOS/Git Bash (des de l'arrel del projecte)
+touch src/app/components/.gitkeep
+touch src/app/services/.gitkeep
+touch src/app/models/.gitkeep
+touch src/app/pages/.gitkeep
+```
+
+Un únic commit a main amb el missatge indicat. Comproveu amb ```git show --stat``` HEAD que hi apareixen els quatre fitxers .gitkeep.
+
+```bash
+git log --oneline --decorate --all --graph
+```
+
+Crear les branques del mòdul
+
+```bash
+git branch ra1-setup
+git branch ra2-components
+git branch ra3-serveis
+git branch ra4-navegacio
+git branch
+```
+
+Pujares les branques creades localment al remot.
+
+```bash
+git push -u origin main
+git push -u origin ra1-setup
+git push -u origin ra2-components
+git push -u origin ra3-serveis
+git push -u origin ra4-navegacio
+
+```
+
+Ho podrem verificar de la següent manera.
+
+```bash
+git branch -a
+git log --oneline --decorate --all --graph
+```
+
+Ens situarem en la branca ra1-setup
+
+```bash
+git switch ra1-setup
+git status
+git branch --show-current   # ha de respondre: ra1-setup
+```
+
+Una vegada dintre iniciarem el servei de l'Angular desde branch ra1-setup.
+
+```bash
+ng serve --open
+```
+
+NO atureu el servidor. Obriu ```src/app/app.component.ts``` i afegiu una propietat pública amb el nom de la vostra aplicació (el que heu triat com a [nom-app]; a l'exemple, un catàleg). De moment conserveu la propietat title generada, perquè la plantilla actual encara la fa servir:
+
+```bash
+import { Component, signal } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({
+  imports: [RouterOutlet],
+  selector: 'app-root',
+  styleUrl: './app.component.scss',
+  templateUrl: './app.component.html',
+})
+export class App {
+  protected readonly title = signal('ioc-angular-gestor-usuario-hector-jimenez');
+  public nomAplicacio = 'Catàleg d\'Elements';   // substituïu-ho pel nom de la vostra aplicació
+}
+
+```
+
+Obriu ```src/app/app.component.html```, esborreu tot el contingut generat i substituïu-lo per una pàgina inicial pròpia amb un títol, un paràgraf de presentació, una targeta de dades i un aside. Cal conservar el <router-outlet /> perquè el projecte té routing activat:
+
+```bash
+<main class="app-shell">
+  <section class="intro">
+    <h1>{{ Gestior Usuaris }}</h1>
+    <p>Aplicació creada per Hector Jimenez Cruz per al mòdul DA2_OA01.</p>
+  </section>
+
+  <section class="project-card">
+    <h2>Dades del projecte</h2>
+    <p>Estat: Projecte base llest</p>
+    <p>Framework: Angular 22</p>
+  </section>
+
+  <aside class="note">
+    <p>Nota: aquest projecte s'ampliarà durant el mòdul.</p>
+  </aside>
+</main>
+
+<router-outlet />
+```
+
+Obriu ```src/app/app.component.scss```, esborreu tot el contingut generat i substituïu-lo
+
+```bash
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 48rem;
+  margin: 2rem auto;
+  font-family: system-ui, sans-serif;
+}
+
+h1 {
+  color: #1976d2;
+}
+
+.project-card {
+  padding: 1rem;
+  border: 1px solid #b7c7d9;
+  border-radius: 0.5rem;
+}
+
+.note {
+  padding: 1rem;
+  background: #eef5ff;
+  border-left: 4px solid #1976d2;
+}
+```
+Una vegada acabat les modificacions executarem les següents comandes en la branca que pertoca.
+
+```bash
+git add .
+git commit -m "cometario"
+
+# En la branca que estem
+git push -u origin ra1-setup
+
+git log --oneline --decorate --all --graph
+
+```
+
+
+------------------------------------------------------
+
+## 4. Scripts Disponibles
+
+| Comanda | Descripció |
+| :--- | ---: |
+| ```npm start``` / ```ng serve``` | Executa el servidor local de desenvolupament. |
+| ```ng build``` | Compila l'aplicació i genera els arxius de producció a /dist. |
+| ```ng test``` | Executa les proves unitàries (unit tests). |
+| ```ng lint``` | Analitza el codi a la cerca d'errors d'estil i sintaxi. |
+
+
+
+| Carpetes principals | Descripció |
+| :--- | ---: |
+| ```src/app/``` | Components i codi de l'aplicació |
+| ```public/``` | Recursos estàtics (imatges, fonts, favicon.ico); en versions antigues d'Angular aquesta carpeta era ```src/assets/``` |
+| ```node_modules/``` | Dependències npm (NO pujar a Git) |
+
+
+
+Fitxers clau:
+| Comanda | Descripció |
+| :--- | ---: |
+| ```angular.json``` | Configuració Angular CLI (aquí queda registrat que els components es generen amb estil SCSS i noms ```*.component.*```) |
+| ```package.json``` | Dependències i scripts ```npm``` |
+| ```tsconfig.json``` | Configuració TypeScript |
+| ```.gitignore``` | Fitxers exclosos de Git (ja inclou ```/node_modules```, ```/dist``` i ```/.angular/cache```) |
+| ```src/app/app.component.ts``` | Component arrel. Amb Angular 22 la classe generada es diu App, tot i que el fitxer conserva el nom ```app.component.ts``` |
+| ```src/app/app.config.ts``` | Configuració global de l'aplicació (proveïdors, entre ells provideRouter(routes)) |
+| ```src/app/app.routes.ts``` | Mapa de rutes, de moment buit |
+| ```src/main.ts``` | Punt d'entrada: bootstrapApplication(App, appConfig) |
+
+
+- Verificarem el contingut dels de diferents fitxers.
+
+Obriu ```src/app/app.component.ts``` i observeu el contingut generat:
+
+```bash
+import { Component, signal } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({
+  imports: [RouterOutlet],
+  selector: 'app-root',
+  styleUrl: './app.component.scss',
+  templateUrl: './app.component.html',
+})
+export class App {
+  protected readonly title = signal('ioc-angular-prova-git-hector');
+}
+```
+
+Obriu ```C:\ZPublico\Repositorios_GitHub\prova-git\ioc-angular-prova-git-hector\package.json```.
+
+```bash
+{
+  "name": "ioc-angular-prova-git-hector",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "packageManager": "npm@11.12.1",
+  "dependencies": {
+    "@angular/common": "^22.1.0",
+    "@angular/compiler": "^22.1.0",
+    "@angular/core": "^22.1.0",
+    "@angular/forms": "^22.1.0",
+    "@angular/platform-browser": "^22.1.0",
+    "@angular/router": "^22.1.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^22.1.7",
+    "@angular/cli": "^22.1.7",
+    "@angular/compiler-cli": "^22.1.0",
+    "jsdom": "^28.0.0",
+    "prettier": "^3.8.1",
+    "typescript": "~6.0.2",
+    "vitest": "^4.0.8"
+  }
+}
+```
+
+
+------------------------------------------------------
+
+## 5. Estructura del Projecte
+
+```text
+ioc-angular-gestor-usuario-hector-jimenez/
+├── .github/              # Workflow i accions de CI/CD
+├── public/                (recursos estàtics)
+├── src/                  # Codi font de l'aplicació
+│   ├── app/              # Components, serveis i mòduls
+│   │   ├── components/    (preparatori, amb .gitkeep)
+│   │   ├── services/      (preparatori, amb .gitkeep)
+│   │   ├── models/        (preparatori, amb .gitkeep)
+│   │   ├── pages/         (preparatori, amb .gitkeep)
+│   │   ├── app.component.ts / .html / .scss
+│   │   ├── app.routes.ts
+│   │   └── app.config.ts
+│   ├── index.html        # Fitxer HTML principal
+│   ├── main.ts
+│   └── styles.scss       # Estils globals
+├── angular.json          # Configuració de l'Angular CLI
+├── package.json          # Manifest de dependències i scripts
+├── tsconfig.json         # Configuració base de TypeScript
+├── README.md
+└── .gitignore            # Fitxers exclosos de Git (node_modules, dist)
+```
+
+------------------------------------------------------
+
+## 6. Tecnologies Utilitzades
+
+- **Frontend**: *Angular, TypeScript, HTML5, CSS3 / SCSS*
+
+- **Entorn i Gestor de Paquets**: *Node.js, NPM*
+
+- **IDE & Control de Versions**: *Visual Studio Code, Git, GitHub*
+
+------------------------------------------------------
+
+## 7. Autors i Llicència
+
+Desenvolupat per **Hector Jimenez Cruz**.
+
+(En el cas d'haver de comentar.)
+Projecte creat sota la llicència MIT - consulta el fitxer LICENSE per a més detalls.
+
+------------------------------------------------------
+
