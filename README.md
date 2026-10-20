@@ -16,6 +16,7 @@
 * [4. Guia d'Instal·lació](#4-guia-dinstal·lació)
 * [4.1. Branch ra1-setup](#4-1-branch-ra1-setup)
 * [4.2. Branch ra2-components](#4-2-branch-ra2-components)
+* [4.3. Branch ra3-serveis](#4-3-branch-ra3-serveis)
 * [5. Estructura del Projecte](#5-estructura-del-projecte)
 * [6. Tecnologies Utilitzades](#6-tecnologies-utilitzades)
 * [7. Autors i Llicència](#7-autors-i-llicència)
@@ -1425,6 +1426,46 @@ Pujares les branques creades localment al remot.
 git add .
 git commit -m "Pujar les noves funcions de l'aplicatiu"
 git push -u origin ra2-components
+git push -u origin ra3-serveis
+git push -u origin ra4-navegacio
+# entoria tendira que ir en la resta de  ramas ya que es una continuacion
+```
+
+Ho podrem verificar de la següent manera.
+
+```bash
+git branch -a
+git log --oneline --decorate --max-count=5
+```
+
+### 4.3. Branch ra3-serveis
+
+**AQUI**
+
+
+Iniciarem el servei per poder visualitzar el funcionament de l'aplicatiu.
+
+```bash
+ng serve --open
+```
+
+Pujar-lo a GIT les actualitzacions fetes al repositori
+
+
+```bash
+#iniciar el GIT
+git init
+
+# cambiar a branca ra3-serveis
+git switch ra3-serveis
+git status
+```
+
+Pujares les branques creades localment al remot.
+
+```bash
+git add .
+git commit -m "Pujar les noves funcions de l'aplicatiu"
 git push -u origin ra3-serveis
 git push -u origin ra4-navegacio
 # entoria tendira que ir en la resta de  ramas ya que es una continuacion
