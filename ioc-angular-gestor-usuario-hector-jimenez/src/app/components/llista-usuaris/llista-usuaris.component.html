@@ -1,0 +1,11 @@
+<!-- Grid de usuarios con control de flujo de Angular 22 -->
+<section class="graella-usuaris" aria-label="Llistat d'usuaris enregistrats">
+    @for (usuari of usuaris; track usuari.id) {
+        <app-targeta-usuari
+        [usuari]="usuari"
+        [seleccionat]="usuari.id === usuariSeleccionatId"
+        (selecciona)="propagaSeleccio($event)"/>
+    } @empty {
+        <p class="sense-resultats" role="status">No s'ha trobat cap usuari amb aquests criteris.</p>
+    }
+</section>

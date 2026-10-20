@@ -1,0 +1,75 @@
+.panell-detall {
+  position: sticky;
+  top: 1rem;
+  align-self: start;
+  padding: 1.25rem;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+
+  h2 {
+    margin-top: 0;
+    color: #1e293b;
+    font-size: 1.25rem;
+  }
+}
+
+.capcalera-detall {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  h3 {
+    margin: 0;
+    color: #0f172a;
+    font-size: 1.1rem;
+  }
+}
+
+.llista-detalls {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+
+  li {
+    margin-bottom: 0.5rem;
+    color: #334155;
+    font-size: 0.95rem;
+  }
+}
+
+.descripcio-seccio {
+  margin-bottom: 1.25rem;
+  color: #475569;
+  font-size: 0.9rem;
+
+  p {
+    margin: 0.25rem 0 0 0;
+  }
+}
+
+.boto-tancar {
+  padding: 0.5rem 1rem;
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #b91c1c;
+  }
+
+  &:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 2px;
+  }
+}
+
+.missatge-indicacio {
+  color: #64748b;
+  font-size: 0.95rem;
+}

@@ -1,0 +1,16 @@
+<article class="targeta-usuari" [class.seleccionat]="seleccionat">
+  <header class="capcalera-targeta">
+    <app-etiqueta-rol [rol]="usuari.rol" [destacat]="usuari.destacat ?? false" />
+    <time [attr.datetime]="usuari.dataAlta">
+      Alta: {{ usuari.dataAlta | date:'dd/MM/yyyy' }}
+    </time>
+  </header>
+
+  <h3>{{ usuari.nom }}</h3>
+  <p class="email">{{ usuari.email }}</p>
+  <p class="puntuacio">Puntuació: <strong>{{ usuari.puntuacio }}/100</strong></p>
+
+  <button type="button" (click)="notificaSeleccio()" [attr.aria-label]="'Veure el detall de ' + usuari.nom">
+    Veure Detall
+  </button>
+</article>

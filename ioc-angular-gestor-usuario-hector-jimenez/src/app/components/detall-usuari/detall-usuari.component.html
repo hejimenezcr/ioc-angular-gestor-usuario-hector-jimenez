@@ -1,0 +1,33 @@
+<aside class="panell-detall" aria-live="polite" aria-label="Detall de l'usuari seleccionat">
+  <h2>Panell de Detall</h2>
+
+  @if (usuari) {
+    <div class="contingut-detall">
+      <header class="capcalera-detall">
+        <h3>{{ usuari.nom }}</h3>
+        <app-etiqueta-rol [rol]="usuari.rol" [destacat]="usuari.destacat ?? false" />
+      </header>
+
+      <ul class="llista-detalls">
+        <li><strong>Email:</strong> {{ usuari.email }}</li>
+        <li><strong>Rol:</strong> {{ usuari.rol }}</li>
+        <li><strong>Data d'alta:</strong> {{ usuari.dataAlta | date:'dd/MM/yyyy' }}</li>
+        <li><strong>Puntuació:</strong> {{ usuari.puntuacio }}/100</li>
+        <li><strong>Estat del compte:</strong> {{ usuari.actiu ? 'Actiu' : 'Inactiu' }}</li>
+      </ul>
+
+      @if (usuari.descripcio) {
+        <div class="descripcio-seccio">
+          <strong>Biografia / Descripció:</strong>
+          <p>{{ usuari.descripcio }}</p>
+        </div>
+      }
+
+      <button type="button" class="boto-tancar" (click)="onTancar()">
+        Tanca el detall
+      </button>
+    </div>
+  } @else {
+    <p class="missatge-indicacio">Seleccioneu un usuari de la llista per veure el seu detall complet.</p>
+  }
+</aside>

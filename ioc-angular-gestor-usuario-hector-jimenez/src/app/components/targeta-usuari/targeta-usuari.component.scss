@@ -1,0 +1,62 @@
+.targeta-usuari {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: #ffffff;
+  transition: box-shadow 0.2s, border-color 0.2s;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  &.seleccionat {
+    border-color: #2563eb;
+    background-color: #f0f9ff;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #1f2937;
+  }
+
+  .email {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .puntuacio {
+    font-size: 0.95rem;
+    color: #374151;
+    margin: 0;
+  }
+
+  button {
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #2563eb;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 600;
+
+    &:focus-visible {
+      outline: 3px solid #f59e0b;
+      outline-offset: 2px;
+    }
+  }
+}
+
+.capcalera-targeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
