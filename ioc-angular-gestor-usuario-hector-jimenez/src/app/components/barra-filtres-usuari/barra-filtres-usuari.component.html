@@ -1,0 +1,38 @@
+<!-- Formulari de filtros basado en FormsModule i [(ngModel)] -->
+<form class="filtres-form" #formulariFiltres="ngForm" (ngSubmit)="aplicaFiltres()" aria-label="Filtres de cerca d'usuaris">
+    <div class="camp">
+        <label for="text-cerca">Cerca per nom o email</label>
+        <input id="text-cerca" name="text" type="search" [(ngModel)]="filtres.text" #campText="ngModel" minlength="3" placeholder="Mínim 3 caràcters (opcional)" aria-describedby="text-ajuda text-error"/>
+        
+        <span id="text-ajuda" class="text-ajuda">
+            Si escriviu un text, ha de tenir com a mínim 3 caràcters.
+        </span>
+        
+        <!-- Messatje de error visible si la longitud no comple la regla -->
+        @if (campText.invalid && (campText.dirty || campText.touched)) {
+            <strong id="text-error" class="text-error" role="alert">
+                La cerca ha de tenir 3 caràcters com a mínim.
+            </strong>
+        }
+    </div>
+    
+    <div class="camp">
+        <label for="select-rol">Filtrar per Rol</label>
+        <select id="select-rol" name="rol" [(ngModel)]="filtres.rol">
+            @for (r of llistaRols; track r) {
+                <option [ngValue]="r">{{ r }}</option>
+            }
+        </select>
+    </div>
+    
+    <div class="accions">
+        <!-- Boto deshabilitadp si el formulario es invalido -->
+        <button type="submit" [disabled]="formulariFiltres.invalid">
+            Aplicar Filtres
+        </button>
+        
+        <button type="button" class="btn-secundari" (click)="restableixFiltres()">
+            Restablir
+        </button>
+    </div>
+</form>

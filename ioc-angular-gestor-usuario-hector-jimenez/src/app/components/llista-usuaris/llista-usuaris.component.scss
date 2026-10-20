@@ -1,0 +1,13 @@
+.graella-usuaris {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.sense-resultats {
+    grid-column: 1 / -1;
+    padding: 3rem;
+    text-align: center;
+    color: #64748b;
+    font-size: 1.1rem;
+}
