@@ -1440,7 +1440,7 @@ git log --oneline --decorate --max-count=5
 
 ### 4.3. Branch ra3-serveis
 
-**AQUI**
+**AQUII**
 
 
 Iniciarem el servei per poder visualitzar el funcionament de l'aplicatiu.
