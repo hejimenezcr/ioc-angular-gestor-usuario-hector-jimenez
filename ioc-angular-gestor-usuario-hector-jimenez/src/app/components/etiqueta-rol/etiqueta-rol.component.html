@@ -1,0 +1,7 @@
+<!-- visual per mostrar el rol con estil diferenciar si es destacado -->
+<span class="etiqueta-rol" [class.destacat]="destacat">
+    {{ rol }}
+    @if (destacat) {
+        ★ <span class="visually-hidden">(Usuari destacat)</span>
+    }
+</span>
